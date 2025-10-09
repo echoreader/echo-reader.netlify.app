@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="container">
+    <header class="page-header">
+        <h1 itemprop="headline">{{ .Title }}</h1>
+        {{ with .Description }}
+        <p class="page-description">{{ . }}</p>
+        {{ end }}
+    </header>
+
+    <div class="posts-list">
+        {{ range .Paginator.Pages }}
+        <article class="post-item" itemscope itemtype="http://schema.org/BlogPosting">
+            <h2 itemprop="headline">
+                <a href="{{ .Permalink }}" itemprop="url">{{ .Title }}</a>
+            </h2>
+            
+            <div class="post-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
+                    {{ .Date.Format "2 January 2006" }}
+                </time>
+                {{ with .ReadingTime }}
+                <span>• {{ . }} menit membaca</span>
+                {{ end }}
+            </div>
+            
+            <p itemprop="description">{{ .Summary }}</p>
+            
+            <a href="{{ .Permalink }}" class="read-more" aria-label="Baca selengkapnya: {{ .Title }}">
+                Baca Selengkapnya →
+            </a>
+        </article>
+        {{ end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

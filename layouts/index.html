@@ -1,0 +1,34 @@
+{{ define "main" }}
+<section class="hero">
+    <div class="container">
+        <!--h1 itemprop="headline">{{ .Site.Title }}</h1>
+        <p class="subtitle">{{ .Site.Params.description }}</p-->
+         <h1>About Echo Reader</h1>
+    <p>Echo Reader is a modular hub for strategic web optimization, schema injection, and scalable content systems.</p> 
+    </div>
+</section>
+
+<!--section class="recent-posts">
+    <div class="container">
+        <h2>Postingan Terbaru</h2>
+        <div class="posts-grid">
+            {{ range first 6 (where .Site.RegularPages "Type" "blog") }}
+            <article class="post-card" itemscope itemtype="http://schema.org/BlogPosting">
+                <div class="post-content">
+                    <h3 itemprop="headline">
+                        <a href="{{ .Permalink }}" itemprop="url">{{ .Title }}</a>
+                    </h3>
+                    <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
+                        {{ .Date.Format "2 January 2006" }}
+                    </time>
+                    <p itemprop="description">{{ .Summary | truncate 150 }}</p>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        <div class="view-all">
+            <a href="/blog/" class="button">Lihat Semua Postingan</a>
+        </div>
+    </div>
+</section-->
+{{ end }}
