@@ -81,3 +81,6 @@ description = "Echo Reader a passionate blog writer dedicated to sharing meaning
   organizationName = "Nama Blog Anda"
   organizationLogo = "/images/logo.png"
   organizationURL = "https://echoreader.appwrite.network/"
+
+  relativeURLs = true
+  canonifyURLs = false
