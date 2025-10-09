@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "http://echo-reader.netlify.app/"
 languageCode = "en-us"
 title = "Echo Reader"
 # theme = "my-hugo-blog"
@@ -80,8 +80,9 @@ description = "Echo Reader a passionate blog writer dedicated to sharing meaning
   # Organization info untuk schema
   organizationName = "Nama Blog Anda"
   organizationLogo = "/images/logo.png"
-  organizationURL = "https://echoreader.appwrite.network/"
+  organizationURL = "http://echo-reader.netlify.app/"
 
   relativeURLs = true
   canonifyURLs = false
+
 
