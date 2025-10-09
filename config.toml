@@ -1,4 +1,4 @@
-baseURL = "https://echoreader.appwrite.network/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Echo Reader"
 # theme = "my-hugo-blog"
@@ -84,3 +84,4 @@ description = "Echo Reader a passionate blog writer dedicated to sharing meaning
 
   relativeURLs = true
   canonifyURLs = false
+
