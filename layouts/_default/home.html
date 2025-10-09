@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container">
+    <h1>Welcome to Echo Reader</h1>
+    <p>Modular hub for schema injection, SEO, and scalable content systems.</p>
+  </div>
+</section>
+
+<section class="recent-posts">
+  <div class="container">
+    <h2>Postingan Terbaru</h2>
+    <div class="posts-grid">
+      {{ range first 6 (where .Site.RegularPages "Type" "blog") }}
+      <article class="post-card">
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Summary | truncate 150 }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
