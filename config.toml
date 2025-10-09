@@ -1,4 +1,4 @@
-baseURL = "https://example.com/"
+baseURL = "https://echoreader.appwrite.network/"
 languageCode = "en-us"
 title = "Echo Reader"
 # theme = "my-hugo-blog"
@@ -80,4 +80,4 @@ description = "Echo Reader a passionate blog writer dedicated to sharing meaning
   # Organization info untuk schema
   organizationName = "Nama Blog Anda"
   organizationLogo = "/images/logo.png"
-  organizationURL = "https://example.com"
+  organizationURL = "https://echoreader.appwrite.network/"
