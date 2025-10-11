@@ -19,14 +19,16 @@
                     {{ .Date.Format "2 January 2006" }}
                 </time>
                 {{ with .ReadingTime }}
-                <span>• {{ . }} menit membaca</span>
+                <span>• {{ . }} Read Minutes</span>
                 {{ end }}
             </div>
             
-            <p itemprop="description">{{ .Summary }}</p>
+            <p itemprop="description">{{ .Params.description }}</p>
+
+
             
-            <a href="{{ .Permalink }}" class="read-more" aria-label="Baca selengkapnya: {{ .Title }}">
-                Baca Selengkapnya →
+            <a href="{{ .Permalink }}" class="read-more" aria-label="Read More: {{ .Title }}">
+                Read More → About {{ .Title }}
             </a>
         </article>
         {{ end }}
