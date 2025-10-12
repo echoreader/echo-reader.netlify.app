@@ -1,390 +1,427 @@
-/* Reset dan Base Styles */
+/* ====================================
+   🔁 RESET & BASE VARIABLES
+   ==================================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --text-color: #1f2937;
-    --text-light: #6b7280;
-    --bg-color: #ffffff;
-    --bg-light: #f9fafb;
-    --border-color: #e5e7eb;
-    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --border-radius: 8px;
-    --transition: all 0.3s ease;
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --text-color: #1f2937;
+  --text-light: #6b7280;
+  --bg-color: #ffffff;
+  --bg-light: #f9fafb;
+  --border-color: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Typography */
+
+/* ====================================
+   ✍️ TYPOGRAPHY
+   ==================================== */
 h1, h2, h3, h4, h5, h6 {
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
 
 p {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: var(--transition);
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
 }
 
 a:hover {
-    color: var(--primary-dark);
+  color: var(--primary-dark);
 }
 
-/* Header */
+
+/* ====================================
+   🧭 HEADER & NAVIGATION
+   ==================================== */
 .site-header {
-    background: var(--bg-color);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
 }
 
 .brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
 }
 
 .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+  display: flex;
+  list-style: none;
+  gap: 2rem;
 }
 
 .nav-link {
-    color: var(--text-color);
-    font-weight: 500;
+  color: var(--text-color);
+  font-weight: 500;
 }
 
 .nav-link:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .nav-toggle {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
 }
 
 .nav-toggle span {
-    width: 25px;
-    height: 3px;
-    background: var(--text-color);
-    margin: 3px 0;
-    transition: var(--transition);
+  width: 25px;
+  height: 3px;
+  background: var(--text-color);
+  margin: 3px 0;
+  transition: var(--transition);
 }
 
-/* Hero Section */
+
+/* ====================================
+   🎯 HERO SECTION
+   ==================================== */
 .hero {
-    padding: 4rem 0;
-    text-align: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: white;
+  padding: 4rem 0;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
 }
 
 .hero h1 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .subtitle {
-    font-size: 1.25rem;
-    opacity: 0.9;
+  font-size: 1.25rem;
+  opacity: 0.9;
 }
 
-/* Posts Grid */
+
+/* ====================================
+   🗂️ POSTS GRID & LISTING
+   ==================================== */
 .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .post-card {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    transition: var(--transition);
-    box-shadow: var(--shadow);
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
 }
 
 .post-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Posts List */
 .posts-list {
-    margin: 2rem 0;
+  margin: 2rem 0;
 }
 
 .post-item {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    transition: var(--transition);
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: var(--transition);
 }
 
 .post-item:hover {
-    box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
 }
 
 .post-meta {
-    color: var(--text-light);
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
 }
 
 .read-more {
-    display: inline-block;
-    margin-top: 1rem;
-    font-weight: 500;
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 500;
 }
 
-/* Single Post */
+
+/* ====================================
+   📄 SINGLE POST STRUCTURE
+   ==================================== */
+.post-single {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+
+/* === HEADER === */
 .post-header {
-    background: var(--bg-light);
-    padding: 3rem 0;
-    margin-bottom: 2rem;
-    text-align: center;
+  background: var(--bg-light);
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
 }
 
+.post-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+
+/* === CONTENT === */
 .post-content {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.post-content h2 {
-    margin-top: 2rem;
+.post-content h2,
+.post-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .post-content p {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
 }
 
 .post-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin: 1.5rem 0;
 }
 
-/* Pagination */
-.pagination {
-    padding: 2rem 0;
-    text-align: center;
+
+/* === TABLE === */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  display: block;
 }
 
-.pagination-prev,
-.pagination-next {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: var(--primary-color);
-    color: white;
-    border-radius: var(--border-radius);
-    margin: 0 0.5rem;
+.post-content th,
+.post-content td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  text-align: left;
+  word-break: break-word;
 }
 
-.pagination-prev:hover,
-.pagination-next:hover {
-    background: var(--primary-dark);
-    color: white;
+.post-content th {
+  background-color: #f0f0f0;
+  font-weight: 600;
 }
 
-.pagination-info {
-    margin: 0 1rem;
-    color: var(--text-light);
+.post-content td {
+  background-color: #fff;
 }
 
-/* Post Navigation */
+
+/* === FOOTER & NAVIGATION === */
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
 .post-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .nav-prev,
 .nav-next {
-    max-width: 45%;
-    padding: 1rem;
-    background: var(--bg-light);
-    border-radius: var(--border-radius);
-    transition: var(--transition);
+  flex: 1;
+  padding: 1rem;
+  background: var(--bg-light);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 .nav-prev:hover,
 .nav-next:hover {
-    background: var(--border-color);
+  background: var(--border-color);
 }
 
-/* Footer */
+
+/* ====================================
+   📌 PAGINATION
+   ==================================== */
+.pagination {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.pagination-prev,
+.pagination-next {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  margin: 0 0.5rem;
+}
+
+.pagination-prev:hover,
+.pagination-next:hover {
+  background: var(--primary-dark);
+}
+
+.pagination-info {
+  margin: 0 1rem;
+  color: var(--text-light);
+}
+
+
+/* ====================================
+   🧱 FOOTER
+   ==================================== */
 .site-footer {
-    background: var(--bg-light);
-    padding: 3rem 0 1rem;
-    margin-top: 4rem;
+  background: var(--bg-light);
+  padding: 3rem 0 1rem;
+  margin-top: 4rem;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .footer-section h3,
 .footer-section h4 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-.footer-section ul {
-    list-style: none;
+/* ================================
+   📊 TABLE STYLING (Post Content)
+   ================================ */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  overflow-x: auto;
+  display: block;
+  font-size: 1rem;
 }
 
-.footer-section li {
-    margin-bottom: 0.5rem;
+/* Table Cells */
+.post-content th,
+.post-content td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  word-break: break-word;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-light);
+/* Header Styling */
+.post-content th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
 }
 
-/* Buttons */
-.button {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: var(--primary-color);
-    color: white;
-    border-radius: var(--border-radius);
-    font-weight: 500;
-    transition: var(--transition);
+/* Body Styling */
+.post-content td {
+  background-color: #fff;
+  color: #444;
 }
 
-.button:hover {
-    background: var(--primary-dark);
-    color: white;
-    transform: translateY(-1px);
-}
-
-/* Responsive Design */
+/* Responsive Table Scroll */
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--bg-color);
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: var(--shadow-lg);
-    }
-    
-    .nav-menu.active {
-        display: flex;
-    }
-    
-    .nav-toggle {
-        display: flex;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
-    h2 {
-        font-size: 1.75rem;
-    }
-    
-    .hero {
-        padding: 3rem 0;
-    }
-    
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .post-navigation {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .nav-prev,
-    .nav-next {
-        max-width: 100%;
-    }
-}
+  .post-content table {
+    font-size: 0.95rem;
+  }
 
-/* Print Styles */
-@media print {
-    .site-header,
-    .site-footer,
-    .post-navigation {
-        display: none;
-    }
-    
-    body {
-        font-size: 12pt;
-        line-height: 1.4;
-    }
-    
-    .container {
-        max-width: none;
-        padding: 0;
-    }
+  .post-content th,
+  .post-content td {
+    padding: 0.6rem;
+  }
 }
