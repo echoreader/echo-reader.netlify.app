@@ -20,8 +20,6 @@
   {{ end }}
 </title>
 
-
-
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
 
 <!-- Open Graph -->
@@ -40,7 +38,7 @@
 <link rel="canonical" href="{{ .Permalink }}">
 
 <!-- Favicon -->
-<link rel="icon" href="{{ "images/favicon.ico" | relURL }}" type="image/x-icon">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon">
 
 <!-- PWA Manifest -->
 {{ if .Site.Params.enablePWA }}
