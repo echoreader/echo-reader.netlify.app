@@ -2,13 +2,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo {{ hugo.Version }}">
 
-<title>
+<!--title>
     {{ if .IsHome }}
         {{ .Site.Title }} - {{ .Site.Params.description }}
     {{ else }}
         {{ .Title }} - {{ .Site.Title }}
     {{ end }}
+</title-->
+
+<title>
+  {{ if .IsHome }}
+    {{ .Title }} | {{ .Site.Title }}
+  {{ else if .IsSection }}
+    {{ .Title }} | {{ .Site.Title }}
+  {{ else }}
+    {{ .Title }} | {{ .Site.Title }}
+  {{ end }}
 </title>
+
+
 
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
 

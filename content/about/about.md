@@ -1,5 +1,6 @@
 ---
-title: "About"
+title: "About Echo Reader"
+description: "Meet Echo, a modular systems architect and holistic web optimization enthusiast."
 layout: "page/about"
 url: "/about/"
 ---
