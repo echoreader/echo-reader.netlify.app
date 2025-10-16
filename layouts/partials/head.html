@@ -2,37 +2,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo {{ hugo.Version }}">
 
-<!--title>
-    {{ if .IsHome }}
-        {{ .Site.Title }} - {{ .Site.Params.description }}
-    {{ else }}
-        {{ .Title }} - {{ .Site.Title }}
-    {{ end }}
-</title-->
+{{ $path := "" }}
+{{ with .File }}{{ $path = .Path }}{{ end }}
+{{ $url := .RelPermalink }}
 
-<title>
-  {{ if .IsHome }}
-    {{ .Title }} | {{ .Site.Title }}
-  {{ else if .IsSection }}
-    {{ .Title }} | {{ .Site.Title }}
+{{ $title := "" }}
+{{ $description := "" }}
+
+{{ if .IsHome }}
+  {{ $title = "Echo Reader – Curated Beauty, Health & Food" }}
+  {{ $description = "Explore curated backlinks in beauty, fashion, wellness, and recipes. Check it Out" }}
+{{ else if in $url "/about/" }}
+  {{ $title = "About Echo Reader – Modular SEO & Web Systems" }}
+  {{ $description = "Meet Echo Reader, a modular systems architect for SEO, schema, and scalable web optimization." }}
+{{ else if in $url "/blog/" }}
+  {{ $title = "Echo Reader Blog – Backlinks & Niche Updates" }}
+  {{ $description = "Browse curated Blogspot backlinks and updates across niche verticals like fashion, health, and food." }}
+{{ else }}
+  {{ $title = printf "%s | Echo Reader" .Title }}
+  {{ with .Description }}
+    {{ $description = . }}
   {{ else }}
-    {{ .Title }} | {{ .Site.Title }}
+    {{ $description = .Summary | plainify | truncate 160 }}
   {{ end }}
-</title>
+{{ end }}
 
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
 
 <!-- Open Graph -->
-<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-{{ with .Site.Params.organizationName }}<meta property="og:site_name" content="{{ . }}">{{ end }}
+{{ with .Site.Params.organizationName }}
+  <meta property="og:site_name" content="{{ . }}">
+{{ end }}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="{{ .Permalink }}">
@@ -42,7 +52,7 @@
 
 <!-- PWA Manifest -->
 {{ if .Site.Params.enablePWA }}
-<link rel="manifest" href="{{ "manifest.json" | relURL }}">
+  <link rel="manifest" href="{{ "manifest.json" | relURL }}">
 {{ end }}
 
 <!-- Styles -->
@@ -50,22 +60,21 @@
 
 <!-- RSS -->
 {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 
 <!-- Schema.org -->
 {{ if .Site.Params.enableSchema }}
-    {{ partial "schema.html" . }}
+  {{ partial "schema.html" . }}
 {{ end }}
 
 <!-- Google Analytics -->
 {{ with .Site.Params.googleAnalytics }}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ . }}');
-    </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ . }}');
+  </script>
 {{ end }}
