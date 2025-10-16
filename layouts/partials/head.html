@@ -8,6 +8,7 @@
 {{ if .IsHome }}
   {{ $title = "Echo Reader – Curated Beauty, Health & Food" }}
   {{ $description = "Explore curated backlinks in beauty, fashion, wellness, and recipes. Check it Out" }}
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,6 +35,7 @@
 {{ else if in $url "/about/" }}
   {{ $title = "About Echo Reader – Modular SEO & Web Systems" }}
   {{ $description = "Meet Echo Reader, a modular systems architect for SEO, schema, and scalable web optimization." }}
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -62,31 +64,32 @@
 {{ else if and (in $url "/blog/") (not .IsPage) }}
   {{ $title = "Echo Reader Blog – Backlinks & Niche Updates" }}
   {{ $description = "Browse curated Blogspot backlinks and updates across niche verticals like fashion, health, and food." }}
+
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://echo-reader.netlify.app/blog/",
-  "mainEntity": {
-    "@type": "ItemList",
-    "name": "Echo Reader Blog List",
-    "description": "Browse curated Blogspot backlinks and updates across niche verticals like fashion, health, and food.",
-    "url": "https://echo-reader.netlify.app/blog/",
-    "numberOfItems": {{ len .Pages }},
-    "itemListElement": [
-      {{ range $index, $page := .Pages }}
-        {
-          "@type": "ListItem",
-          "position": {{ add $index 1 }},
-          "url": "{{ $page.Permalink }}",
-          "name": "{{ $page.Title }}",
-          "headline": "{{ $page.Title }}"
-        }{{ if ne (add $index 1) (len .Pages) }},{{ end }}
-      {{ end }}
-    ]
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://echo-reader.netlify.app/blog/",
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Echo Reader Blog List",
+      "description": "{{ $description }}",
+      "url": "https://echo-reader.netlify.app/blog/",
+      "numberOfItems": {{ len .Pages }},
+      "itemListElement": [
+        {{ range $index, $page := .Pages }}
+          {
+            "@type": "ListItem",
+            "position": {{ add $index 1 }},
+            "url": "{{ $page.Permalink }}",
+            "name": "{{ $page.Title }}",
+            "headline": "{{ $page.Title }}"
+          }{{ if ne (add $index 1) (len .Pages) }},{{ end }}
+        {{ end }}
+      ]
+    }
   }
-}
-</script>
+  </script>
 
 {{ else }}
   {{ $title = printf "%s | Echo Reader" .Title }}
@@ -95,44 +98,44 @@
   {{ else }}
     {{ $description = .Summary | plainify | truncate 160 }}
   {{ end }}
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ $title }}",
-  "description": "{{ $description }}",
-  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-  "author": {
-    "@type": "Person",
-    "name": "Echo Reader"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Echo Reader",
-    "url": "https://echo-reader.netlify.app/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://echo-reader.netlify.app/favicon.ico"
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ .Permalink }}"
-  },
-  "isPartOf": {
-    "@type": "Blog",
-    "name": "Echo Reader Blog",
-    "url": "https://echo-reader.netlify.app/blog/"
-  },
-  {{ with .Params.featuredImage }}
-  "image": "{{ . }}",
-  {{ end }}
-  "wordCount": {{ .WordCount }},
-  "articleBody": "{{ .Plain | htmlEscape | truncate 500 }}"
-}
-</script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ $title }}",
+    "description": "{{ $description }}",
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    "author": {
+      "@type": "Person",
+      "name": "Echo Reader"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Echo Reader",
+      "url": "https://echo-reader.netlify.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://echo-reader.netlify.app/favicon.ico"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}"
+    },
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Echo Reader Blog",
+      "url": "https://echo-reader.netlify.app/blog/"
+    },
+    {{ with .Params.featuredImage }}
+    "image": "{{ . }}",
+    {{ end }}
+    "wordCount": {{ .WordCount }},
+    "articleBody": "{{ .Plain | htmlEscape | truncate 500 }}"
+  }
+  </script>
 {{ end }}
 
 <title>{{ $title }}</title>
