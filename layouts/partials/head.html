@@ -1,7 +1,3 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="Hugo {{ hugo.Version }}">
-
 {{ $path := "" }}
 {{ with .File }}{{ $path = .Path }}{{ end }}
 {{ $url := .RelPermalink }}
@@ -12,12 +8,80 @@
 {{ if .IsHome }}
   {{ $title = "Echo Reader – Curated Beauty, Health & Food" }}
   {{ $description = "Explore curated backlinks in beauty, fashion, wellness, and recipes. Check it Out" }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Echo Reader",
+    "alternateName": "Echo",
+    "url": "https://echo-reader.netlify.app/",
+    "logo": "https://echo-reader.netlify.app/favicon.ico",
+    "description": "{{ $description }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chattanooga",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://x.com/echo_reader",
+      "https://github.com/echoreader",
+      "https://www.linkedin.com/in/echo-reader/"
+    ]
+  }
+  </script>
+
 {{ else if in $url "/about/" }}
   {{ $title = "About Echo Reader – Modular SEO & Web Systems" }}
   {{ $description = "Meet Echo Reader, a modular systems architect for SEO, schema, and scalable web optimization." }}
-{{ else if in $url "/blog/" }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Echo Reader",
+      "alternateName": "Echo",
+      "description": "{{ $description }}",
+      "url": "https://echo-reader.netlify.app/about/",
+      "sameAs": [
+        "https://x.com/echo_reader",
+        "https://github.com/echoreader",
+        "https://www.linkedin.com/in/echo-reader/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chattanooga",
+        "addressRegion": "TN",
+        "addressCountry": "US"
+      }
+    }
+  }
+  </script>
+
+{{ else if and (in $url "/blog/") (not .IsPage) }}
   {{ $title = "Echo Reader Blog – Backlinks & Niche Updates" }}
   {{ $description = "Browse curated Blogspot backlinks and updates across niche verticals like fashion, health, and food." }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Echo Reader Blog List",
+    "description": "{{ $description }}",
+    "url": "https://echo-reader.netlify.app/blog/",
+    "numberOfItems": {{ len .Pages }},
+    "itemListElement": [
+      {{ range $index, $page := .Pages }}
+        {
+          "@type": "ListItem",
+          "position": {{ add $index 1 }},
+          "url": "{{ $page.Permalink }}"
+        }{{ if ne (add $index 1) (len .Pages) }},{{ end }}
+      {{ end }}
+    ]
+  }
+  </script>
+
 {{ else }}
   {{ $title = printf "%s | Echo Reader" .Title }}
   {{ with .Description }}
@@ -25,6 +89,33 @@
   {{ else }}
     {{ $description = .Summary | plainify | truncate 160 }}
   {{ end }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ $title }}",
+    "description": "{{ $description }}",
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    "author": {
+      "@type": "Person",
+      "name": "Echo Reader"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Echo Reader",
+      "url": "https://echo-reader.netlify.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://echo-reader.netlify.app/favicon.ico"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}"
+    }
+  }
+  </script>
 {{ end }}
 
 <title>{{ $title }}</title>
@@ -35,9 +126,7 @@
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-{{ with .Site.Params.organizationName }}
-  <meta property="og:site_name" content="{{ . }}">
-{{ end }}
+<meta property="og:site_name" content="Echo Reader">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -62,11 +151,6 @@
 {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
-
-<!-- Schema.org -->
-{{ if .Site.Params.enableSchema }}
-  {{ partial "schema.html" . }}
-{{ end }}
 
 <!-- Google Analytics -->
 {{ with .Site.Params.googleAnalytics }}

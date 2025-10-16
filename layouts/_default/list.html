@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container">
     <header class="page-header">
-        <h1 itemprop="headline">{{ .Title }}</h1>
+        <h1>{{ .Title }}</h1>
         {{ with .Description }}
         <p class="page-description">{{ . }}</p>
         {{ end }}
@@ -9,13 +9,13 @@
 
     <div class="posts-list">
         {{ range .Paginator.Pages }}
-        <article class="post-item" itemscope itemtype="http://schema.org/BlogPosting">
-            <h2 itemprop="headline">
-                <a href="{{ .Permalink }}" itemprop="url">{{ .Title }}</a>
+        <article class="post-item">
+            <h2>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
             </h2>
             
             <div class="post-meta">
-                <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
                     {{ .Date.Format "2 January 2006" }}
                 </time>
                 {{ with .ReadingTime }}
@@ -23,10 +23,8 @@
                 {{ end }}
             </div>
             
-            <p itemprop="description">{{ .Params.description }}</p>
+            <p>{{ .Params.description }}</p>
 
-
-            
             <a href="{{ .Permalink }}" class="read-more" aria-label="Read More: {{ .Title }}">
                 Read More → About {{ .Title }}
             </a>

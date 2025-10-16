@@ -1,11 +1,11 @@
 {{ define "main" }}
-<article class="post-single" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post-single">
     <header class="post-header">
         <div class="container">
-            <h1 itemprop="headline">{{ .Title }}</h1>
+            <h1>{{ .Title }}</h1>
             
             <div class="post-meta">
-                <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
                     {{ .Date.Format "2 January 2006" }}
                 </time>
                 {{ with .ReadingTime }}
@@ -15,14 +15,12 @@
         </div>
     </header>
 
-    <div class="post-content container" itemprop="articleBody">
+    <div class="post-content container">
         {{ .Content }}
     </div>
 
     <footer class="post-footer">
         <div class="container">
-            {{ partial "schema.html" . }}
-            
             <nav class="post-navigation">
                 {{ with .PrevInSection }}
                 <a href="{{ .Permalink }}" class="nav-prev" rel="prev">
