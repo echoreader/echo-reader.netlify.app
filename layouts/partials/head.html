@@ -63,11 +63,14 @@
   {{ $title = "Echo Reader Blog – Backlinks & Niche Updates" }}
   {{ $description = "Browse curated Blogspot backlinks and updates across niche verticals like fashion, health, and food." }}
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://echo-reader.netlify.app/blog/",
+  "mainEntity": {
     "@type": "ItemList",
     "name": "Echo Reader Blog List",
-    "description": "{{ $description }}",
+    "description": "Browse curated Blogspot backlinks and updates across niche verticals like fashion, health, and food.",
     "url": "https://echo-reader.netlify.app/blog/",
     "numberOfItems": {{ len .Pages }},
     "itemListElement": [
@@ -75,12 +78,15 @@
         {
           "@type": "ListItem",
           "position": {{ add $index 1 }},
-          "url": "{{ $page.Permalink }}"
+          "url": "{{ $page.Permalink }}",
+          "name": "{{ $page.Title }}",
+          "headline": "{{ $page.Title }}"
         }{{ if ne (add $index 1) (len .Pages) }},{{ end }}
       {{ end }}
     ]
   }
-  </script>
+}
+</script>
 
 {{ else }}
   {{ $title = printf "%s | Echo Reader" .Title }}
@@ -90,32 +96,43 @@
     {{ $description = .Summary | plainify | truncate 160 }}
   {{ end }}
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "{{ $title }}",
-    "description": "{{ $description }}",
-    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-    "author": {
-      "@type": "Person",
-      "name": "Echo Reader"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Echo Reader",
-      "url": "https://echo-reader.netlify.app/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://echo-reader.netlify.app/favicon.ico"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "{{ .Permalink }}"
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ $title }}",
+  "description": "{{ $description }}",
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "author": {
+    "@type": "Person",
+    "name": "Echo Reader"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Echo Reader",
+    "url": "https://echo-reader.netlify.app/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://echo-reader.netlify.app/favicon.ico"
     }
-  }
-  </script>
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Echo Reader Blog",
+    "url": "https://echo-reader.netlify.app/blog/"
+  },
+  {{ with .Params.featuredImage }}
+  "image": "{{ . }}",
+  {{ end }}
+  "wordCount": {{ .WordCount }},
+  "articleBody": "{{ .Plain | htmlEscape | truncate 500 }}"
+}
+</script>
+
 {{ end }}
 
 <title>{{ $title }}</title>
