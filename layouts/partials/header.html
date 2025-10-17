@@ -1,4 +1,4 @@
-<header class="site-header" role="banner">
+<!--header class="site-header" role="banner">
     <div class="container">
         <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="nav-brand">
@@ -24,4 +24,34 @@
             </button>
         </nav>
     </div>
+</header-->
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <!-- Kiri: Brand -->
+      <div class="nav-brand">
+        <a href="{{ .Site.BaseURL }}" class="brand" itemprop="url">
+          {{ .Site.Title }}
+        </a>
+      </div>
+
+      <!-- Kanan: Toggle + Menu -->
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" role="menubar">
+        {{ range .Site.Menus.main }}
+        <li role="none">
+          <a href="{{ .URL }}" class="nav-link" role="menuitem">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
 </header>
