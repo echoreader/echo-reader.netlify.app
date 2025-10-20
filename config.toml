@@ -60,7 +60,8 @@ description = "Echo Reader a passionate blog writer dedicated to sharing meaning
 
 # Outputs
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  #home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
   page = ["HTML"]
 
 # Params tambahan

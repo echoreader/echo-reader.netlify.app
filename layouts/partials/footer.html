@@ -1,48 +1,13 @@
 <footer class="site-footer" role="contentinfo">
-    <div class="container">
-        <!--div class="footer-content">
-            <div class="footer-section">
-                <h3>{{ .Site.Title }}</h3>
-                <p>{{ .Site.Params.description }}</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Navigasi</h4>
-                <ul>
-                    {{ range .Site.Menus.main }}
-                    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-                    {{ end }}
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Kontak</h4>
-                <ul>
-                    {{ with .Site.Author.email }}
-                    <li><a href="mailto:{{ . }}">Email</a></li>
-                    {{ end }}
-                    {{ with .Site.Params.github }}
-                    <li><a href="https://github.com/{{ . }}">GitHub</a></li>
-                    {{ end }}
-                </ul>
-            </div>
-        </div-->
-        
-        <!-- div class="footer-bottom" -->
-            <!-- p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p -->
-            <!-- p>Dibuat dengan <a href="https://gohugo.io">Hugo</a></p-->
-        <!--/div-->
-        <div class="footer-bottom" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-  <p>
-    &copy; {{ now.Format "2006" }}
-    {{ .Site.Title }}.
-    All rights reserved.
-  </p>
-  <p>
-    <a href="https://pureglowhealth.blogspot.com/" target="_blank">Pure Glow Health</a><br>
-    <a href="https://grownfit.blogspot.com/" target="_blank">Grown Fit</a>
-  </p>
-</div>
-
+  <div class="container">
+    <div class="footer-bottom">
+      <p>
+        &copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.
+      </p>
+      <p>
+        <a href="https://pureglowhealth.blogspot.com/" target="_blank">Pure Glow Health</a><br>
+        <a href="https://grownfit.blogspot.com/" target="_blank">Grown Fit</a>
+      </p>
     </div>
+  </div>
 </footer>
