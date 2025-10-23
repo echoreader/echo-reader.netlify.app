@@ -1,6 +1,6 @@
 /* ================================
 🔁 RESET & BASE VARIABLES
-==========================a====== */
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -8,17 +8,13 @@
 }
 
 :root {
-  --primary-color: #2563eb;
-  --primary-dark: #1d4ed8;
-  --text-color: #1f2937;
-  --text-light: #6b7280;
+  --primary-color: #5a67d8;       /* Biru keunguan Hugo Docs */
+  --primary-dark: #434190;        /* Biru gelap */
+  --text-color: #2d3748;          /* Teks gelap */
+  --text-light: #718096;          /* Teks abu terang */
   --bg-color: #ffffff;
-  --bg-light: #f9fafb;
-  --border-color: #e5e7eb;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --border-radius: 8px;
-  --transition: all 0.3s ease;
+  --bg-light: #edf2f7;            /* Footer abu terang */
+  --border-color: #e2e8f0;
 }
 
 body {
@@ -136,12 +132,32 @@ a:hover {
   text-align: left;
 }
 
-.about-section h1 {
-  text-align: left;
-  margin-left: 0;
+about-section {
+  padding: 4rem 1.5rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  background-color: #fff;
 }
 
+.about-section h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
 
+.about-section p {
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+}
+
+.about-section a {
+  color: #0077cc;
+  text-decoration: underline;
+}
 
 /* ================================
 🗂️ POSTS LISTING
@@ -177,7 +193,6 @@ a:hover {
   margin-top: 1rem;
   font-weight: 500;
 }
-
 
 /* ================================
 📄 SINGLE POST
@@ -228,7 +243,6 @@ a:hover {
   margin: 1.5rem 0;
 }
 
-
 /* ================================
 📊 TABLE STYLING
 ================================ */
@@ -258,7 +272,6 @@ a:hover {
   background-color: #fff;
 }
 
-
 /* ================================
 🧱 FOOTER
 ================================ */
@@ -267,9 +280,11 @@ a:hover {
   padding: 2rem 1rem;
   font-size: 0.9rem;
   color: var(--text-light);
+  border-top: 1px solid var(--border-color);
 }
 
 .footer-bottom {
+  color: var(--primary-color);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -281,12 +296,15 @@ a:hover {
   text-align: left;
 }
 
+.footer-bottom a:hover {
+  color: var(--primary-dark);
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
 }
-
 
 /* ================================
 📱 MOBILE RESPONSIVE

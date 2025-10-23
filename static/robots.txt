@@ -8,4 +8,4 @@ Disallow: /categories/
 Disallow: /404.html
 
 # Sitemap for better indexing
-Sitemap: https://echo-reader.netlify.app/sitemap.xml
+Sitemap: https://vibefit.blog/sitemap.xml

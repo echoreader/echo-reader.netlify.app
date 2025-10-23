@@ -6,8 +6,8 @@
 {{ $description := "" }}
 
 {{ if .IsHome }}
-  {{ $title = "Echo Reader – Curated Beauty, Health & Food" }}
-  {{ $description = "Explore curated backlinks in beauty, fashion, wellness, and recipes. Check it Out" }}
+  {{ $title = "Vibefit Blog — Beauty Rituals & Wellness Wisdom for Modern Self-Care" }}
+  {{ $description = "Discover Vibefit Blog, where beauty meets balance. Explore skincare rituals, fashion insights, fitness tips, and holistic wellness guides designed to elevate your everyday self-care journey." }}
 
   <script type="application/ld+json">
   {
@@ -15,8 +15,8 @@
     "@type": "Organization",
     "name": "Echo Reader",
     "alternateName": "Echo",
-    "url": "https://echo-reader.netlify.app/",
-    "logo": "https://echo-reader.netlify.app/favicon.ico",
+    "url": "https://vibefit.blog/",
+    "logo": "https://vibefit.blog/favicon.ico",
     "description": "{{ $description }}",
     "address": {
       "@type": "PostalAddress",
@@ -33,8 +33,8 @@
   </script>
 
 {{ else if in $url "/about/" }}
-  {{ $title = "About Echo Reader – Modular SEO & Web Systems" }}
-  {{ $description = "Meet Echo Reader, a modular systems architect for SEO, schema, and scalable web optimization." }}
+  {{ $title = "About Vibefit — Where Beauty Meets Wellness in Everyday Self-Care" }}
+  {{ $description = "Vibefit is your sanctuary for modern self-care. We blend beauty rituals, fashion insights, fitness routines, and holistic wellness into one empowering space. Learn more about our mission to help you glow, grow, and thrive — inside and out." }}
 
   <script type="application/ld+json">
   {
@@ -45,7 +45,7 @@
       "name": "Echo Reader",
       "alternateName": "Echo",
       "description": "{{ $description }}",
-      "url": "https://echo-reader.netlify.app/about/",
+      "url": "https://vibefit.blog/about/",
       "sameAs": [
         "https://x.com/echo_reader",
         "https://github.com/echoreader",
@@ -62,19 +62,19 @@
   </script>
 
 {{ else if and (in $url "/blog/") (not .IsPage) }}
-  {{ $title = "Echo Reader Blog – Backlinks & Niche Updates" }}
-  {{ $description = "Browse curated Blogspot backlinks and updates across niche verticals like fashion, health, and food." }}
+  {{ $title = "Vibefit Articles — Skincare, Fashion, Fitness & Wellness Insights for Everyday Glow" }}
+  {{ $description = "Browse Vibefit curated collection of articles blending beauty rituals, fashion inspiration, fitness routines, and holistic wellness tips. Your journey to glowing skin, mindful movement, and balanced living starts here." }}
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "@id": "https://echo-reader.netlify.app/blog/",
+    "@id": "https://vibefit.blog/blog/",
     "mainEntity": {
       "@type": "ItemList",
-      "name": "Echo Reader Blog List",
+      "name": "Vibefit Blog List",
       "description": "{{ $description }}",
-      "url": "https://echo-reader.netlify.app/blog/",
+      "url": "https://vibefit.blog/blog/",
       "numberOfItems": {{ len .Pages }},
       "itemListElement": [
         {{ range $index, $page := .Pages }}
@@ -114,10 +114,10 @@
     "publisher": {
       "@type": "Organization",
       "name": "Echo Reader",
-      "url": "https://echo-reader.netlify.app/",
+      "url": "https://vibefit.blog/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://echo-reader.netlify.app/favicon.ico"
+        "url": "https://vibefit.blog/favicon.ico"
       }
     },
     "mainEntityOfPage": {
@@ -126,8 +126,8 @@
     },
     "isPartOf": {
       "@type": "Blog",
-      "name": "Echo Reader Blog",
-      "url": "https://echo-reader.netlify.app/blog/"
+      "name": "Vibefit Blog",
+      "url": "https://vibefit.blog/blog/"
     },
     {{ with .Params.featuredImage }}
     "image": "{{ . }}",
@@ -146,7 +146,7 @@
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:site_name" content="Echo Reader">
+<meta property="og:site_name" content="Vibefit">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">

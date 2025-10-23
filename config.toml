@@ -1,6 +1,7 @@
-baseURL = "http://echo-reader.netlify.app/"
+baseURL = "https://vibefit.blog"
+#echo-reader.netlify.app > vibefit.blog
 languageCode = "en-us"
-title = "Echo Reader"
+title = "Vibefit"
 # theme = "my-hugo-blog"
 
 # Meta description default
