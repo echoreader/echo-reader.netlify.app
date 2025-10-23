@@ -1,14 +1,13 @@
 <header class="site-header" role="banner">
-  <div class="container">
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <!-- Kiri: Brand -->
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <!-- Left: Brand -->
       <div class="nav-brand">
         <a href="{{ .Site.BaseURL }}" class="brand" itemprop="url">
           {{ .Site.Title }}
         </a>
       </div>
-
-      <!-- Kanan: Toggle + Menu -->
+      <!-- Right: Toggle + Menu -->
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
@@ -24,6 +23,6 @@
         </li>
         {{ end }}
       </ul>
-    </nav>
-  </div>
+      </nav>
+    </div>
 </header>
