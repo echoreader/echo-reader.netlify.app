@@ -15,3 +15,9 @@ command = """\
   git config core.quotepath false && \
   hugo --gc --minify --baseURL "${URL}"
   """
+
+[[redirects]]
+     from = "https://echo-reader.netlify.app/*"
+     to = "https://vibefit.blog/:splat"
+     status = 301
+     force = true
