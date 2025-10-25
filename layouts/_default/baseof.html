@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      {{ block "head" . }}{{ partial "head.html" . }}{{ end }} 
+
+     <script> if (window.location.search.includes("no-track")) { localStorage.setItem("skipAnalytics", "true"); } if (localStorage.getItem("skipAnalytics") !== "true") { const cfScript = document.createElement("script"); cfScript.defer = true; cfScript.src = "https://static.cloudflareinsights.com/beacon.min.js"; cfScript.setAttribute("data-cf-beacon", '{"token": "c5ada26cf19f4c60bd3c2182b9c76b11"}'); document.head.appendChild(cfScript); } </script>
 </head>
 <body>
     {{ partial "header.html" . }}
