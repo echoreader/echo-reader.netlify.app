@@ -55,15 +55,39 @@ description = "Echo Reader a passionate blog writer dedicated to sharing meaning
     id = "UA-XXXXX" # Ganti dengan ID Google Analytics Anda
 
 # Sitemap
-[sitemap]
-  changefreq = "weekly"
-  priority = 0.5
+#[sitemap]
+  #changefreq = "weekly"
+  #priority = 0.5
+
+disableKinds = ["sitemap"]
+
 
 # Outputs
 [outputs]
   #home = ["HTML", "RSS", "JSON"]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "SitemapIndex", "SitemapPost", "SitemapPage"]
   page = ["HTML"]
+
+[outputFormats.SitemapIndex]
+mediaType = "application/xml"
+baseName = "sitemap-index"
+isPlainText = true
+notAlternative = true
+permalinkable = true
+
+[outputFormats.SitemapPost]
+mediaType = "application/xml"
+baseName = "sitemap-post"
+isPlainText = true
+notAlternative = true
+permalinkable = true
+
+[outputFormats.SitemapPage]
+mediaType = "application/xml"
+baseName = "sitemap-page"
+isPlainText = true
+notAlternative = true
+permalinkable = true
 
 # Params tambahan
 [params]
