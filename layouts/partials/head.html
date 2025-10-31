@@ -7,7 +7,7 @@
 
 {{ if .IsHome }}
   {{ $title = "Vibefit Blog — Beauty Rituals & Wellness Wisdom for Modern Self-Care" }}
-  {{ $description = "Discover Vibefit Blog, where beauty meets balance. Explore skincare rituals, fashion insights, fitness tips, and holistic wellness guides designed to elevate your everyday self-care journey." }}
+  {{ $description = "Discover Vibefit Blog, where beauty meets balance. Explore skincare rituals, fashion insights, fitness tips, and holistic wellness guides designed." }}
 
   <script type="application/ld+json">
   {
@@ -34,7 +34,7 @@
 
 {{ else if in $url "/about/" }}
   {{ $title = "About Vibefit — Where Beauty Meets Wellness in Everyday Self-Care" }}
-  {{ $description = "Vibefit is your sanctuary for modern self-care. We blend beauty rituals, fashion insights, fitness routines, and holistic wellness into one empowering space. Learn more about our mission to help you glow, grow, and thrive — inside and out." }}
+  {{ $description = "Vibefit is your sanctuary for modern self-care. We blend beauty rituals, fashion insights, fitness routines." }}
 
   <script type="application/ld+json">
   {
@@ -61,9 +61,21 @@
   }
   </script>
 
+{{ else if in $url "/contact/" }}
+  {{ $title = "Contact" }}
+  {{ $description = "Get in touch with me for questions, feedback, or collaboration opportunities." }}
+
+{{ else if in $url "/disclaimer/" }}
+  {{ $title = "Disclaimer" }}
+  {{ $description = "Read this disclaimer to understand the limitations of the information provided on this blog." }}  
+
+{{ else if in $url "/privacy-policy/" }}
+  {{ $title = "Privacy Policy" }}
+  {{ $description = "Learn how I collect, use, and protect your data while you browse this informational blog." }}    
+
 {{ else if and (in $url "/blog/") (not .IsPage) }}
-  {{ $title = "Vibefit Articles — Skincare, Fashion, Fitness & Wellness Insights for Everyday Glow" }}
-  {{ $description = "Browse Vibefit curated collection of articles blending beauty rituals, fashion inspiration, fitness routines, and holistic wellness tips. Your journey to glowing skin, mindful movement, and balanced living starts here." }}
+  {{ $title = "Vibefit Articles — Skincare, Fashion, Fitness & Wellness" }}
+  {{ $description = "Browse Vibefit curated collection of articles blending beauty rituals, fashion inspiration, fitness routines, and holistic wellness tips." }}
 
   <script type="application/ld+json">
   {
