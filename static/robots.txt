@@ -1,11 +1,10 @@
 User-agent: *
-Allow: /
-
-# Block Hugo system folders (if any exist in public build)
-Disallow: /drafts/
 Disallow: /tags/
 Disallow: /categories/
+Disallow: /drafts/
 Disallow: /404.html
+Disallow: /index.xml
+Allow: /
 
-# Sitemap for better indexing
 Sitemap: https://vibefit.blog/sitemap-index.xml
+Host: https://vibefit.blog
