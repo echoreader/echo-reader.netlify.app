@@ -5,7 +5,7 @@ date: 2025-10-24
 ---
 Okay, can we talk about that tight, uncomfortable feeling your face gets sometimes? Like your skin is literally begging for a drink of water. I've been there especially after a long flight, a night of poor sleep, or when the heater is blasting in the winter. My skin feels like parchment paper, and makeup just settles into every fine line.
 
-I used to slather on the richest cream I could find, but it never really fixed the problem. It felt greasy but still... tight. It wasn't until I started learning about skincare that I realized I was treating the wrong thing. I needed to learn [**how to hydrate my face quickly**](https://vibefit.blog), not just moisturize it. There's a huge difference, and understanding it changed everything for me.
+I used to slather on the richest cream I could find, but it never really fixed the problem. It felt greasy but still... tight. It wasn't until I started learning about skincare that I realized I was treating the wrong thing. I needed to learn **how to hydrate my face quickly**, not just moisturize it. There's a huge difference, and understanding it changed everything for me.
 
 If your skin is feeling parched and you need relief, fast, here's what actually works.
 

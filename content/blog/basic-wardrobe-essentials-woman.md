@@ -6,7 +6,7 @@ date: 2025-10-30
 
 Okay, can I confess something? I used to stare at my overflowing closet every morning and still sigh, "I have nothing to wear." Sound familiar? It was a chaos of trendy pieces that went out of style in a season and impulse buys that still had the tags on. I felt overwhelmed, wasted so much money, and was chronically late.
 
-Then I discovered the magic of a **[capsule wardrobe](https://vibefit.blog)**. And no, it's not a boring uniform! It's about building a closet full of versatile, high-quality pieces that you actually love to wear. It simplifies your life, saves you money in the long run, and honestly, it makes getting dressed a joy instead of a chore. Let's break down the real, no-fluff basic wardrobe essentials every woman should have.
+Then I discovered the magic of a **capsule wardrobe**. And no, it's not a boring uniform! It's about building a closet full of versatile, high-quality pieces that you actually love to wear. It simplifies your life, saves you money in the long run, and honestly, it makes getting dressed a joy instead of a chore. Let's break down the real, no-fluff basic wardrobe essentials every woman should have.
 
 First Things First: The Mindset Shift 🤔
 ----------------------------------------
