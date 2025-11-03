@@ -5,9 +5,14 @@
         &copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.
       </p>
       <p>
+        <!--
         <a href="{{ .Site.BaseURL }}contact">Contact</a><br>
         <a href="{{ .Site.BaseURL }}disclaimer">Disclaimer</a><br>
         <a href="{{ .Site.BaseURL }}privacy-policy">Privacy Policy</a>
+        -->
+        {{ partial "link.html" (dict "href" "/contact/" "text" "Contact") }}<br>
+        {{ partial "link.html" (dict "href" "/disclaimer/" "text" "Disclaimer") }}<br>
+        {{ partial "link.html" (dict "href" "/privacy-policy/" "text" "Privacy Policy") }}
       </p>
     </div>
   </div>

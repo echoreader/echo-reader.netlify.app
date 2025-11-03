@@ -42,12 +42,12 @@ description = "Echo Reader a passionate blog writer dedicated to sharing meaning
   blog = "/:slug/"
 
 # Markdown processing
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-  [markup.highlight]
-    style = "monokai"
+#[markup]
+  #[markup.goldmark]
+    #[markup.goldmark.renderer]
+      #unsafe = true
+  #[markup.highlight]
+    #style = "monokai"
 
 # Services
 [services]
@@ -111,4 +111,12 @@ permalinkable = true
   relativeURLs = true
   canonifyURLs = false
 
-
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Menonaktifkan fitur tipografi Goldmark
+      unsafe = true # Diperlukan untuk beberapa ekstensi, tapi juga mengizinkan HTML mentah
+      # Di Goldmark terbaru, mungkin perlu menonaktifkan ekstensi typographer
+      
+    [markup.goldmark.extensions]
+      typographer = false

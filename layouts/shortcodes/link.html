@@ -1,0 +1,7 @@
+{{ $baseURL := cond (eq hugo.Environment "production") "https://vibefit.blog" "http://localhost:1313" }}
+<a href="{{ $baseURL }}{{ .Get "href" }}"
+  {{ with .Get "target" }} target="{{ . }}"{{ end }}
+  {{ with .Get "rel" }} rel="{{ . }}"{{ end }}
+  class="external">
+  {{ .Inner }}
+</a>

@@ -34,10 +34,9 @@ Tops are the backbone of any outfit, offering endless versatility when chosen th
     
 *   **Fabric matters**: Opt for breathable materials like cotton or linen for comfort.
     
+#### Styling Tips for 
 
-#### Styling Tips for Versatility
-
-*   **A Simple Knit Sweater:** I live in these from fall to spring. A fine-gauge merino wool or cashmere blend in a neutral color (black, grey, camel) is worth the investment. It's warm, lightweight, and looks effortlessly chic.
+*   {{< link href="/how-to-knit-a-sweater-on-straight-needles/" target="_blank">}}<b>A Simple Knit Sweater</b>{{< /link >}}: I live in these from fall to spring. A fine-gauge merino wool or cashmere blend in a neutral color (black, grey, camel) is worth the investment. It's warm, lightweight, and looks effortlessly chic.
     
 *   **A Versatile Blouse:** This is where you can inject a little personality a subtle stripe, a silky fabric, a beautiful neckline. It’s your go-to for looking pulled-together without trying too hard.
     
