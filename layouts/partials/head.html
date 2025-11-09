@@ -1,3 +1,28 @@
+<!-- 1. Charset & viewport -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 2. SEO meta -->
+<meta name="robots" content="index, follow">
+
+<!-- 3. Google AdSense Script -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-6771362188294710"
+  crossorigin="anonymous"></script>
+
+<!-- 4. Cloudflare beacon script -->
+<script>
+  if (window.location.search.includes("no-track")) {
+    localStorage.setItem("skipAnalytics", "true");
+  }
+  if (localStorage.getItem("skipAnalytics") !== "true") {
+    const cfScript = document.createElement("script");
+    cfScript.defer = true;
+    cfScript.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    cfScript.setAttribute("data-cf-beacon", '{"token": "c5ada26cf19f4c60bd3c2182b9c76b11"}');
+    document.head.appendChild(cfScript);
+  }
+</script>
+
 {{ $path := "" }}
 {{ with .File }}{{ $path = .Path }}{{ end }}
 {{ $url := .RelPermalink }}
@@ -9,6 +34,7 @@
   {{ $title = "Vibefit Blog — Beauty Rituals & Wellness Wisdom for Modern Self-Care" }}
   {{ $description = "Discover Vibefit Blog, where beauty meets balance. Explore skincare rituals, fashion insights, fitness tips, and holistic wellness guides designed." }}
 
+  <!-- Schema: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,6 +62,7 @@
   {{ $title = "About Vibefit — Where Beauty Meets Wellness in Everyday Self-Care" }}
   {{ $description = "Vibefit is your sanctuary for modern self-care. We blend beauty rituals, fashion insights, fitness routines." }}
 
+  <!-- Schema: ProfilePage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,41 +94,15 @@
 
 {{ else if in $url "/disclaimer/" }}
   {{ $title = "Disclaimer" }}
-  {{ $description = "Read this disclaimer to understand the limitations of the information provided on this blog." }}  
+  {{ $description = "Read this disclaimer to understand the limitations of the information provided on this blog." }}
 
 {{ else if in $url "/privacy-policy/" }}
   {{ $title = "Privacy Policy" }}
-  {{ $description = "Learn how I collect, use, and protect your data while you browse this informational blog." }}    
+  {{ $description = "Learn how I collect, use, and protect your data while you browse this informational blog." }}
 
 {{ else if and (in $url "/blog/") (not .IsPage) }}
   {{ $title = "Vibefit Articles — Skincare, Fashion, Fitness & Wellness" }}
   {{ $description = "Browse Vibefit curated collection of articles blending beauty rituals, fashion inspiration, fitness routines, and holistic wellness tips." }}
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": "https://vibefit.blog/blog/",
-    "mainEntity": {
-      "@type": "ItemList",
-      "name": "Vibefit Blog List",
-      "description": "{{ $description }}",
-      "url": "https://vibefit.blog/blog/",
-      "numberOfItems": {{ len .Pages }},
-      "itemListElement": [
-        {{ range $index, $page := .Pages }}
-          {
-            "@type": "ListItem",
-            "position": {{ add $index 1 }},
-            "url": "{{ $page.Permalink }}",
-            "name": "{{ $page.Title }}",
-            "headline": "{{ $page.Title }}"
-          }{{ if ne (add $index 1) (len .Pages) }},{{ end }}
-        {{ end }}
-      ]
-    }
-  }
-  </script>
 
 {{ else }}
   {{ $title = printf "%s | Echo Reader" .Title }}
@@ -111,6 +112,7 @@
     {{ $description = .Summary | plainify | truncate 160 }}
   {{ end }}
 
+  <!-- Schema: BlogPosting -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -150,6 +152,7 @@
   </script>
 {{ end }}
 
+
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
 
@@ -177,20 +180,9 @@
 {{ end }}
 
 <!-- Styles -->
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-
-<!-- RSS -->
-{{ range .AlternativeOutputFormats -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-{{ end -}}
-
-<!-- Google Analytics -->
-{{ with .Site.Params.googleAnalytics }}
-  <!--script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script-->
-  <!--script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ . }}');
-  </script-->
-{{ end }}
+<!-- link rel="stylesheet" href="{{ "css/style.css" | relURL }}" -->
+<!-- Google Fonts: Open Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ "css/unocss.css" | relURL }}">

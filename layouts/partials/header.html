@@ -1,33 +1,43 @@
-<header class="site-header" role="banner">
-    <div class="container">
-      <nav class="navbar" role="navigation" aria-label="Main navigation">
-      <!-- Left: Brand -->
-      <div class="nav-brand">
-        <a href="{{ .Site.BaseURL }}" class="brand" itemprop="url">
-          {{ .Site.Title }}
-        </a>
-      </div>
-      <!-- Right: Toggle + Menu -->
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <!--span></span-->
-        <span></span>
-        <span></span>
-      </button>
+<header class="w-full bg-white shadow-md fixed top-0 left-0 z-50" role="banner">
+  <div class="max-w-4xl mx-auto flex items-center justify-between px-4 py-3">
+    <!-- Brand -->
+    <a href="{{ .Site.BaseURL }}" class="text-xl font-bold text-gray-800 no-underline" itemprop="url">
+      {{ .Site.Title }}
+    </a>
 
-      <ul class="nav-menu" role="menubar">
-        {{ range .Site.Menus.main }}
-        <!--li role="none">
-          <a href="{{ .URL }}" class="nav-link" role="menuitem">
-            {{ .Name }}
-          </a>
-        </li-->
-        <li role="none">
-          <a href="{{ .URL | absURL }}" class="nav-link" role="menuitem">
-            {{ .Name }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-      </nav>
+    <!-- Hamburger (mobile only) -->
+    <button id="menu-toggle" class="lg:hidden flex flex-col gap-1 p-2 text-gray-700" aria-label="Open menu" aria-expanded="false">
+      <span class="w-6 h-0.5 bg-gray-700"></span>
+      <span class="w-6 h-0.5 bg-gray-700"></span>
+    </button>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex gap-6 items-center" role="navigation" aria-label="Main navigation">
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL | absURL }}" class="text-gray-700 hover:text-blue-600 no-underline" role="menuitem">
+          {{ .Name }}
+        </a>
+      {{ end }}
+    </nav>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-gray-50 text-gray-800">
+    <div class="max-w-6xl mx-auto flex flex-col px-4 py-2">
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL | absURL }}" class="py-2 no-underline hover:text-blue-600" role="menuitem">
+          {{ .Name }}
+        </a>
+      {{ end }}
     </div>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
+  });
+</script>

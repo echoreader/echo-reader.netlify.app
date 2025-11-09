@@ -1,0 +1,23 @@
+{
+  "name": "vibefit.blog",
+  "version": "1.0.0",
+  "description": "Static blog for vibefit.blog built with Hugo",
+  "author": "Echo Reader",
+  "scripts": {
+    "dev": "vite",
+    "build:css": "unocss 'layouts/**/*.html' 'content/**/*.md' -o assets/css/unocss.css"
+  },
+  "devDependencies": {
+    "unocss": "^66.5.4",
+    "vite": "^7.2.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/echoreader/vibefit.blog"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

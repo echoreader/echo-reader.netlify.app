@@ -2,6 +2,7 @@
 <a href="{{ $baseURL }}{{ .href }}"
   {{ with .target }} target="{{ . }}"{{ end }}
   {{ with .rel }} rel="{{ . }}"{{ end }}
-  class="external">
+  class="{{ with .class }}{{ . }}{{ else }}external{{ end }}">
   {{ .text | safeHTML }}
 </a>
+
