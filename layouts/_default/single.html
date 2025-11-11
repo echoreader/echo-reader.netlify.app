@@ -4,7 +4,7 @@
         <div class="container">
             <h1>
   <a
-    href="{{ .Site.BaseURL }}{{ .RelPermalink }}"
+    href="{{ .RelPermalink | absURL }}"
     aria-label="Permalink to: {{ .Title }}"
     class="text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-400"
   >
